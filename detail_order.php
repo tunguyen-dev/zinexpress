@@ -55,23 +55,49 @@
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <span>
-                                       <span>Mã vận đơn: </span>
+                                       <span style="font-weight: 700">Mã vận đơn: </span>
                                        <span class="float-right text-danger"><i class="fas fa-barcode"></i> <strong>8485513156456</strong></span>
                                     </span><br>
                                     <span>
-                                       <span>Mã khách hàng: </span>
+                                       <span style="font-weight: 700">Mã khách hàng: </span>
                                        <span class="float-right "> AUTO45641</span>
                                     </span><br>
                                     <span>
-                                       <span>Ngày tạo: </span>
+                                       <span style="font-weight: 700">Ngày tạo: </span>
                                        <span class="float-right "> 14-03-2021 13:10:00</span>
-                                   </span><br>
-                                   <span>
-                                       <span>Trạng thái: </span>
-                                       <span class="float-right "> <?= Commons_ConvertStatusOrder::ConvertStatus(6)?></span>
-                                   </span>
-                                   <hr>
-                                   <h5><strong class='text-danger'>Người gửi</strong></h5>
+                                    </span><br>
+                                    <span>
+                                        <span style="font-weight: 700">Trạng thái: </span>
+                                        <span class="float-right "> <?= Commons_ConvertStatusOrder::ConvertStatus(6)?></span>
+                                    </span>
+                                    <hr>
+                                    <h5><strong class='text-danger'>Người gửi</strong></h5>
+                                    <span>
+                                        <span style="font-weight: 700">Tên người gửi: </span>
+                                        <span class="float-right "> SHOP TUZYN</span>
+                                        </span><br>
+                                        <span>
+                                        <span style="font-weight: 700">SĐT: </span>
+                                        <span class="float-right "> 0387170000</span>
+                                    </span><br>
+                                    <span>
+                                        <span style="font-weight: 700">Địa chỉ: </span>
+                                        <span> số 68 ngõ 68 vạn phúc, Phường Vạn Phúc, Quận Hà Đông, Thành Phố Hà Nội</span>
+                                    </span>
+                                    <hr>
+                                    <h5><strong class='text-danger'>Người nhận</strong></h5>
+                                    <span>
+                                        <span style="font-weight: 700">Tên người nhận: </span>
+                                        <span class="float-right "> TU NGUYEN</span>
+                                        </span><br>
+                                        <span>
+                                        <span style="font-weight: 700">SĐT nhận: </span>
+                                        <span class="float-right "> 0387172222</span>
+                                    </span><br>
+                                    <span>
+                                        <span style="font-weight: 700">Địa chỉ nhận: </span>
+                                        <span> số 68 ngõ 68 vạn phúc, Phường Vạn Phúc, Quận Hà Đông, Thành Phố Hà Nội</span>
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -83,7 +109,23 @@
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
-
+                                    <span>
+                                       <span style="font-weight: 700">Sẩn phẩm: </span>
+                                       <span class="float-right">Quần áo</span>
+                                    </span><br>
+                                    <span>
+                                       <span style="font-weight: 700">Khối lượng: </span>
+                                       <span class="float-right "> 500 Gr</span>
+                                    </span><br>
+                                    <span>
+                                       <span style="font-weight: 700">Chiều: </span>
+                                       <span class="float-right "> D: 5cm - R: 5cm - C: 5cm</span>
+                                    </span><br>
+                                    <span>
+                                       <span style="font-weight: 700">Ghi chú: </span>
+                                       <span class="float-right "> giao nhanh giúp shop</span>
+                                   </span>
+                                   <span>
                                 </div>
                             </div>
                         </div>

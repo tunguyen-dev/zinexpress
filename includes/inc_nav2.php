@@ -123,7 +123,7 @@
                 <a class="dropdown-item" style="text-align: center;">
                     <span style="color: #00857f;"><strong><?= $adminuser->phone?></strong></span>
                 </a>
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="<?= Commons_WebConst::HTACCESS_PROFILE ?>">
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                     Thông tin cá nhân
                 </a>                

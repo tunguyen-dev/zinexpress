@@ -111,7 +111,7 @@ if($_function == "load_profile"){?>
             <form role="form" id="formSaveBank">
                 <input type="hidden" name="_function" value="save_bank">
                 <div class="form-group">
-                    <select name="bank_id" class="form-control select2_js" style="width: 100%">
+                    <select name="bank_id" id="bank_id" class="form-control select2_js" style="width: 100%">
                         <option value="0">Chọn tên ngân hàng</option>
                         <?php
                             $models_banks = new Models_Banks();
@@ -128,8 +128,28 @@ if($_function == "load_profile"){?>
                         ?>
                     </select>
                 </div>
+                <!-- <div class="form-group">
+                    <input type="text" placeholder="Chi nhánh ngân hàng..." value="" required="" class="form-control" name="acc_branch">
+                </div> -->
                 <div class="form-group">
-                    <input type="text" placeholder="Chi nhánh ngân hàng..." value="<?= $adminuser->acc_branch?>" required="" class="form-control" name="acc_branch">
+                    <div id="load_branch_bank">
+                        <select name="branch_id" value="<?= $adminuser->acc_branch?>" style="width:100%" class="form-control select2_js">
+                            <option value="0">Chọn chi nhánh...</option>
+                            <?php
+                                $models_banks = new Models_BranchBanks();
+                                $list_branch_banks = $models_banks->customFilter('', array('bank_id' => $adminuser->bank_id), 'ID ASC');
+                                $id_branch_check = $adminuser->branch_id;
+                                foreach($list_branch_banks as $branch_banks) {
+                                    if ($id_branch_check == $branch_banks->getId()) {
+                                        $check = "selected";
+                                    }else{
+                                        $check = "";
+                                    }
+                                    echo "<option value='{$branch_banks->getId()}' $check> {$branch_banks->name} </option>";
+                                }
+                            ?>
+                        </select>
+                    </div>
                 </div>
                 <div class="form-group">
                     <input type="text" placeholder="Chủ tài khoản..." value="<?= $adminuser->acc_name?>" required="" class="form-control" name="acc_name">
@@ -157,12 +177,16 @@ if($_function == "load_profile"){?>
         exit;
     }
     if ($bank_id == 0) {
-        echo json_encode(array('code' => 1, 'status' => false, 'msg' => 'Chưa chọn ngân hàng'));
+        echo json_encode(array('code' => 1, 'status' => false, 'msg' => 'Vui lòng chọn ngân hàng'));
+        exit;
+    }
+    if ($branch_id == 0) {
+        echo json_encode(array('code' => 1, 'status' => false, 'msg' => 'Vui lòng chọn chi nhánh ngân hàng'));
         exit;
     }
     $check = true;
     $model_user = new Models_Users();
-    // $array_update = array();
+    $array_update = array();
     if (isset($opt_check)) {
         if (!Library_Validation::isNumber($opt_check)) {
             echo json_encode(array('code' => 1, 'status' => false, 'msg' => 'Mã xác thực chỉ được chứa số'));
@@ -190,9 +214,9 @@ if($_function == "load_profile"){?>
             $adminuser->bank_id = $bank_id;
             array_push($array_update, "bank_id");
         }
-        if ($acc_branch != $adminuser->acc_branch) {
-            $adminuser->acc_branch = $acc_branch;
-            array_push($array_update, "acc_branch");
+        if ($branch_id != $adminuser->branch_id) {
+            $adminuser->branch_id = $branch_id;
+            array_push($array_update, "branch_id");
         }
         if ($acc_number != $adminuser->acc_number) {
             $adminuser->acc_number = $acc_number;
@@ -202,6 +226,7 @@ if($_function == "load_profile"){?>
             $adminuser->acc_name = $acc_name;
             array_push($array_update, "acc_name");
         }
+
         $model_user->setPersistents($adminuser);
         if ($model_user->edit($array_update, 1)) {
             echo json_encode(array('status' => true, 'code' => 0, 'msg' => 'Cập nhật thông tin thành công'));
@@ -289,32 +314,17 @@ if($_function == "load_profile"){?>
             <form role="form" id="formConfigOrder">
                 <input type="hidden" name="_function" value="config_order">
                 <div class="form-group">
-                    <label style="margin-left: -10px;color:#333;font-size: 17px;font-weight: 800;">TÙY CHỌN LẤY HÀNG</label>
-                    <div class="form-check mt-1">
-                        <input class="form-check-input" type="radio" name="config_pickup" id="pickup_home"    value="0" <?php echo ($adminuser->config_pickup == 0) ? 'checked' : '' ?>>
-                        <label class="form-check-label" for="pickup_home" style="color:#333;font-size: 15px;font-weight: 400;">
-                            Đến lấy tại nhà
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="config_pickup" id="pickup_post" value="1" <?php echo ($adminuser->config_pickup == 1) ? 'checked' : '' ?>>
-                        <label class="form-check-label" for="pickup_post" style="color:#333;font-size: 15px;font-weight: 400;">
-                            Gửi hàng tại bưu cục
-                        </label>
-                    </div>
-                </div>
-                <div class="form-group">
                     <label style="margin-left: -10px;color:#333;font-size: 17px;font-weight: 800;">NGƯỜI TRẢ CƯỚC</label>
                     <div class="form-check mt-1">
                         <input class="form-check-input" type="radio" name="config_payer" id="sender" value="0" <?php echo ($adminuser->config_payer == 0) ? 'checked' : '' ?>>
                         <label class="form-check-label" for="sender" style="color:#333;font-size: 15px;font-weight: 400;">
-                            Người gửi
+                            Người gửi (sẽ trừ phí cước sau khi đối soát)
                         </label>
                     </div>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="config_payer" id="receiver" value="1" <?php echo ($adminuser->config_payer == 1) ? 'checked' : '' ?>>
                         <label class="form-check-label" for="receiver" style="color:#333;font-size: 15px;font-weight: 400;">
-                            Người nhận
+                            Người nhận (sẽ cộng tiền cước vào COD)
                         </label>
                     </div>
                 </div>
@@ -373,10 +383,6 @@ if($_function == "load_profile"){?>
         }
     }
     if ($check == true) {
-        if ($config_pickup != $adminuser->config_pickup) {
-            $adminuser->config_pickup = $config_pickup;
-            array_push($array_update, "config_pickup");
-        }
         if ($config_note_select != $adminuser->config_note_select) {
             $adminuser->config_note_select = $config_note_select;
             array_push($array_update, "config_note_select");

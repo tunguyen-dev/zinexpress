@@ -145,19 +145,19 @@
                                                     <label class="label_black"><i class="fas fa-ruler-vertical"></i> Kích thước [Cm]</label>
                                                     <div class="row">
                                                         <div class="col-4">
-                                                            <input placeholder="Chiều dài" required="" type="text" class="form-control" name="weight">
+                                                            <input placeholder="Chiều dài" required="" type="text" class="form-control number_cleave" value="5" name="length" id="length">
                                                         </div>
                                                         <div class="col-4">
-                                                            <input placeholder="Chiều rộng" required="" type="text" class="form-control" name="weight">
+                                                            <input placeholder="Chiều rộng" required="" type="text" class="form-control number_cleave" value="5" name="width" id="width">
                                                         </div>
                                                         <div class="col-4">
-                                                            <input placeholder="Chiều cao" required="" type="text" class="form-control" name="weight">
+                                                            <input placeholder="Chiều cao" required="" type="text" class="form-control number_cleave" value="5" name="height" id="height">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group mt-2">
                                                     <label class="label_black"><i class="fab fa-cloudscale"></i> KL Quy Đổi: ([dài*rộng*cao]/6) [Đơn vị: Gram]</label>
-                                                    <input placeholder="Khối lượng quy đổi từ kích thước..." readonly type="text" class="form-control" name="weight">
+                                                    <input placeholder="Khối lượng quy đổi từ kích thước..." readonly type="text" class="form-control" value="21" name="weight_exchange" id="weight_exchange">
                                                 </div>
                                                 <div class="form-group mt-2">
                                                     <label class="label_black"><i class="fas fa-clipboard"></i> Ghi chú đơn hàng</label>
@@ -221,21 +221,6 @@
                                                 <div class="form-group mt-2">
                                                     <div class="row">
                                                         <div class="col-lg-6 col-md-12">
-                                                            <label class="label_black"><i class="fas fa-shipping-fast"></i> Tùy chọn lấy hàng </label>
-                                                            <div class="form-check mt-1">
-                                                                <input class="form-check-input" type="radio" name="config_pickup" id="pickup_home"    value="0" <?php echo ($adminuser->config_pickup == 0) ? 'checked' : '' ?>>
-                                                                <label class="form-check-label" for="pickup_home" style="color:#333;font-size: 15px;font-weight: 400;">
-                                                                    Đến lấy tại nhà
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="radio" name="config_pickup" id="pickup_post" value="1" <?php echo ($adminuser->config_pickup == 1) ? 'checked' : '' ?>>
-                                                                <label class="form-check-label" for="pickup_post" style="color:#333;font-size: 15px;font-weight: 400;">
-                                                                    Gửi hàng tại bưu cục
-                                                                </label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-6 col-md-12">
                                                             <label class="label_black"><i class="fas fa-user-tag"></i> Người trả cước </label>
                                                             <div class="form-check mt-1">
                                                                 <input class="form-check-input" type="radio" name="config_payer" id="sender" value="0" <?php echo ($adminuser->config_payer == 0) ? 'checked' : '' ?>>
@@ -276,10 +261,14 @@
 
     </div>
 </body>
-
+<script type="text/javascript" src="js/cleavejs/cleave.min.js"></script>
 </html>
 <script type="text/javascript">
     $(document).ready(function(){
+        function calExchange(width,height,length) {
+            var cal = (width*height*length)/6;
+            return cal;
+        }
         $('body').on('change', '#city', function(e){
             var code = $('#city').val();
             $('#commune').val(0);
@@ -326,6 +315,35 @@
                     $('.select2_js').select2();     
                 }         
             }); 
+        });
+        $('#width').on('blur',function() {
+            var width = $('#width').val();
+            var height = $('#height').val();
+            var length = $('#length').val();
+            var exchange = Math.ceil(calExchange(width,height,length));
+            $('#weight_exchange').val(exchange);
+
+        });
+        $('#height').on('blur',function() {
+            var width = $('#width').val();
+            var height = $('#height').val();
+            var length = $('#length').val();
+            var exchange = Math.ceil(calExchange(width,height,length));
+            $('#weight_exchange').val(exchange);
+            
+        });
+        $('#length').on('blur',function() {
+            var width = $('#width').val();
+            var height = $('#height').val();
+            var length = $('#length').val();
+            var exchange = Math.ceil(calExchange(width,height,length));
+            $('#weight_exchange').val(exchange);
+        });
+        $('.number_cleave').toArray().forEach(function(field){
+            new Cleave(field, {
+                numeral: true,
+                numeralThousandsGroupStyle: 'thousand'
+            })
         });
     });
 </script>

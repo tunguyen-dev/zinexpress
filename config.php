@@ -27,12 +27,12 @@ if(version_compare(phpversion(), '5.6.0', '<') == true){
 // LOCALHOST
 function __autoload($name) {
     $path = implode('/',explode('_', $name)) . '.php';
-    $path = $_SERVER['DOCUMENT_ROOT'] . "/zinexpress/" . $path;
+    $path = $_SERVER['DOCUMENT_ROOT'] . "/projects/zinexpress/" . $path;
     if(file_exists($path)) {
         require_once $path;
     }
 }
-ini_set('display_errors', 1);
+ini_set('display_errors', 0);
 set_time_limit(0);
 mb_internal_encoding("UTF-8");
 header('Content-Type: text/html;charset=UTF-8');
@@ -46,18 +46,18 @@ header('Content-Type: text/html;charset=UTF-8');
 $base_url = "http://" . $_SERVER['HTTP_HOST'] . "/zinexpress";
 $base_root = $_SERVER['DOCUMENT_ROOT'] . "";
 //$root_logs = "/home/khiemhamon/www/adminsys.topmove.vn/Logs";
-$root_logs = "E:/xampp/htdocs/zinexpress/Logs";
+$root_logs = "D:/xampp/htdocs/projects/zinexpress/Logs";
 /**
  * config db 
  * 
  **/
 $config['default'] = array(
-        'host' => 'localhost',
-        'user' => 'root',
-        'pass' => '',
-        'db'   => 'zinexpress',
+    'host' => 'localhost',
+    'user' => 'root',
+    'pass' => '',
+    'db'   => 'zinexpress',
 
-    );
+);
 
 // reload data
 if(isset($_SESSION['user_logged'])) {

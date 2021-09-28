@@ -201,6 +201,21 @@
                     }
                     if (_function == 'load_userbank') {
                         $('.select2_js').select2();
+                        $('#bank_id').change(function() {
+                            var bank_id = $('#bank_id').val();
+                        
+                            $.ajax({
+                                url: 'ajax/load_branch_bank.php',
+                                type: 'POST',
+                                data: {
+                                    bank_id: bank_id,             
+                                },
+                                success : function(data) {
+                                    $('#load_branch_bank').html(data);
+                                    $("#branch_id").select2();
+                                }         
+                            });     
+                        });
                         $("#formSaveBank").ajaxForm({
                             url : './ajax/setting_account.php',
                             type : 'post',
