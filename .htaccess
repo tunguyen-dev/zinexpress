@@ -1,0 +1,26 @@
+RewriteEngine on
+
+Options All -Indexes
+ErrorDocument 404 /notfound.php
+
+RewriteRule ^api(.*)$ api/api.php?rquest=$1 [QSA,NC,L]
+
+
+RewriteRule ^dang-nhap$                                         login.php
+RewriteRule ^dang-ky$                                 			register.php
+RewriteRule ^quen-mat-khau$                                     forget.php
+RewriteRule ^thong-ke$                                     	    index.php
+RewriteRule ^doi-mat-khau-otp$                                  change_pass_otp.php
+RewriteRule ^quan-ly-tai-khoan$                                 profile.php
+RewriteRule ^xac-thuc-2-yeu-to$                                 authentication_2fa.php
+RewriteRule ^doi-mat-khau-email                                 reset_password.php
+RewriteRule ^kho-hang                                 			warehouse.php
+RewriteRule ^tao-don-le                                			create_order.php
+RewriteRule ^tao-don-bang-excel                               	create_order_by_excel.php
+RewriteRule ^quan-ly-don-hang                               	order_managerment.php
+RewriteRule ^chi-tiet-don-hang-([0-9]+)                         detail_order.php?id=$1
+
+
+
+
+

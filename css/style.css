@@ -1,0 +1,96 @@
+.tooltip_style {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip_style .tooltiptext_style {
+  visibility: hidden;
+  width: 160px;
+  background-color: #5c6163;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 50%;
+  margin-left: -130px;
+  
+  /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.tooltip_style:hover .tooltiptext_style {
+  visibility: visible;
+  opacity: 1;
+}
+.tooltip_style:hover .tooltiptext_style {
+  visibility: visible;
+}
+.select2-dropdown {
+      z-index: 10060;
+}
+.select2-close-mask {
+    z-index: 10055;
+}
+.hover_active:hover{
+    cursor: pointer;
+}
+.form-check-label:hover{
+  color: #224abe !important;
+  cursor: pointer;
+}
+.hr-right{
+  border-right: 1px solid #e3e6f0;
+}
+.label_black{
+  color: #333;
+}
+.select2-selection__rendered {
+    line-height: 36px !important;
+}
+.select2-container .select2-selection--single {
+    height: 39px !important;
+}
+.select2-selection__arrow {
+    height: 39px !important;
+}
+.label-light-green {
+  background-color: #1ab394;
+  margin-bottom: 0.5rem;
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+}
+.label-secondary {
+  background-color: #dddde2;
+  margin-bottom: 0.5rem;
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  color: #333;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+}
+
+.btn-group-xs>.btn, .btn-xs{
+  padding: .35rem .4rem .25rem .4rem !important;
+  font-size: .875rem !important;
+  line-height: .5rem !important;
+  border-radius: .2rem !important;
+}
+
+
