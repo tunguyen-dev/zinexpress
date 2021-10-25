@@ -67,7 +67,7 @@ if ($_function == "add_ware") {
 }elseif($_function == "load_data"){
     $model_ware = new Models_WareHouses();
     // $list_ware = $model_ware->getList2();
-    $sql = "SELECT * FROM WareHouses WHERE 1=1 ";
+    $sql = "SELECT * FROM WareHouses WHERE user_id = {$adminuser->getId()} ";
     if (isset($status)) {
         $sql .= " AND status = $status";
     }

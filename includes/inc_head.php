@@ -3,6 +3,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
+<link rel="icon" type="image/png" href="<?= $icon_web?>" />
+
 
 <!-- Custom fonts for this template-->
 <link href="plugin/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -11,9 +13,9 @@
 <!-- Custom styles for this template-->
 <!-- <link href="css/sb-admin-2.min.css" rel="stylesheet"> -->
 <!-- Style css by tunguyen-->
-<link href="css/style.css?v=1.9" rel="stylesheet">
+<link href="css/style.css?v=2.0" rel="stylesheet">
 <!-- Custom styles for this template-->
-<link href="css/sb-admin-2.css?v=1.0" rel="stylesheet">
+<link href="css/sb-admin-2.css?v=1.1" rel="stylesheet">
 <link href="css/jquery-ui.min.css" rel="stylesheet">
 <!-- Custom styles for this template-->
 <link href="plugin/date-picker/css/bootstrap-datepicker3.min.css" rel="stylesheet">

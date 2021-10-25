@@ -6,10 +6,10 @@ foreach($_POST as $key => $value) {
 }
 
 // check name
-if($shop_name == "" || strlen($shop_name) >= 30) {
-    echo json_encode(array('code' => 1, 'status' => false, 'msg' => 'Tên nhỏ hơn 30 ký tự!'));
-    exit();
-}
+// if($shop_name == "" || strlen($shop_name) >= 30) {
+//     echo json_encode(array('code' => 1, 'status' => false, 'msg' => 'Tên nhỏ hơn 30 ký tự!'));
+//     exit();
+// }
 
 // check valid phone
 if(!Library_Validation::isPhoneNumber($phone)) {
@@ -27,7 +27,11 @@ if(empty($password) || strlen($password) <= 7) {
     echo json_encode(array('code' => 1, 'status' => false, 'msg' => 'Mật khẩu phải trên 7 ký tự!'));
     exit();
 }
- 
+// check name
+// if($post_code == "") {
+//     echo json_encode(array('code' => 1, 'status' => false, 'msg' => 'Vui lòng nhập mã bưu cục!'));
+//     exit();
+// }
 $models_user = new Models_Users();
 
 // if ok
@@ -39,7 +43,7 @@ $user->phone = $phone;
 $user->email = $email;
 $user->salt = $salt;
 $user->password = $password;
-
+// $user->post_code = $post_code;
 
 $user_phone = $models_user->getObjectByCondition('',array('phone' => $phone));
 $user_email = $models_user->getObjectByCondition('',array('email' => $email));
@@ -58,8 +62,6 @@ $models_user->setPersistents($user);
 $user_id = $models_user->addV2(1);
 
 if($user_id) {
-    $users = $models_user->getObject($user_id);
-    $_SESSION['user_logged'] = $users;
     echo json_encode(array('status' => true, 'code' => 0, 'msg' => 'Đăng ký thành công'));
 }
 else {

@@ -19,11 +19,13 @@ class Persistents_Users extends Persistents_Core {
     public $orders               = 0; 
     public $status               = 1;
     public $config_note_select   = 1;
-    public $config_note_text     = 1;
+    public $config_note_text     = "";
     public $config_payer         = 1;
-    
-    
-    
+    public $balance              = 0;
+    public $fee_cod              = 1;
+    public $fee_insurance        = 1;
+    public $free_return          = 1;
+    public $same_price           = 0;
 
     function getId() {
     	return $this->id;

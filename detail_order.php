@@ -12,7 +12,33 @@
 <head>
     <title><?= Commons_WebConst::TITLE_WEB ?> - Chi tiết đơn hàng</title>
     <?php include 'includes/inc_head.php'?>
+    <!-- CSS HANH TRINH DON HANG -->
+    <style>
+        
 
+        .session_ul > ul, li{
+            list-style: none;
+            padding: 0;
+        }
+        .session_ul{
+            /* margin-top: 2rem; */
+            border-radius: 12px;
+            position: relative;
+            height: 400px;
+            overflow-y: auto;
+        }
+        /* .time{
+            color: #2a2839;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+        } */
+        .session_ul > li > p{
+            color: #4f4f4f;
+            font-family: sans-serif;
+            line-height: 1.5;
+            margin-top:0.4rem;
+        }
+    </style>
 </head>
 
 
@@ -124,8 +150,31 @@
                                     <span>
                                        <span style="font-weight: 700">Ghi chú: </span>
                                        <span class="float-right "> giao nhanh giúp shop</span>
-                                   </span>
-                                   <span>
+                                    </span>
+                                    <br>
+                                    <span>
+                                       <span style="font-weight: 700">Thu hộ (COD): </span>
+                                       <span class="float-right text-danger" style="font-weight: 700"> 500,000 đ</span>
+                                    </span>
+                                    <br>
+                                    <span>
+                                       <span style="font-weight: 700">Giá trị đơn hàng: </span>
+                                       <span class="float-right text-danger" style="font-weight: 700"> 1,000,000 đ</span>
+                                    </span>
+                                    <hr>
+                                    <h5><strong class='text-danger'>Cước phí</strong></h5>
+                                    <span>
+                                        <span style="font-weight: 700">Phí ship: </span>
+                                        <span  class="float-right text-primary" style="font-weight: 700"> 20,000 đ</span>
+                                        </span><br>
+                                        <span>
+                                        <span style="font-weight: 700">Phí COD: </span>
+                                        <span  class="float-right text-primary" style="font-weight: 700"> 0 đ</span>
+                                    </span><br>
+                                    <span>
+                                        <span style="font-weight: 700">Phí BH: </span>
+                                        <span  class="float-right text-primary" style="font-weight: 700"> 0 đ</span>
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -137,7 +186,25 @@
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
-                                   
+                                    <div>
+                                        <ul class="session_ul">
+                                            <li>
+                                                <div class="time">14:03 29-09-2021</div>
+                                                <p>Khách tạo mới đơn hàng</p>
+                                            </li>
+                                            <hr>
+                                            <li>
+                                                <div class="time">14:03 29-09-2021</div>
+                                                <p>Đã lấy hàng</p>
+                                            </li>
+                                            <hr>
+                                            <li>
+                                                <div class="time">14:03 29-09-2021</div>
+                                                <p>Đã nhập kho</p>
+                                            </li>
+                                            
+                                        </ul>
+                                    </div> 
                                 </div>
                             </div>
                         </div>

@@ -19,6 +19,19 @@ RewriteRule ^tao-don-le                                			create_order.php
 RewriteRule ^tao-don-bang-excel                               	create_order_by_excel.php
 RewriteRule ^quan-ly-don-hang                               	order_managerment.php
 RewriteRule ^chi-tiet-don-hang-([0-9]+)                         detail_order.php?id=$1
+RewriteRule ^danh-sach-file-excel                               list_excel.php
+RewriteRule ^quan-ly-phan-hoi                                   feedback_order.php
+RewriteRule ^thong-ke-cod                                       static_cod.php
+RewriteRule ^thong-ke-dong-tien                                 static_cash_flow.php
+RewriteRule ^phieu-doi-soat                                     for_control.php
+RewriteRule ^lich-su-giao-dich                                  transaction.php
+RewriteRule ^rut-tien                                           withdraw.php
+
+# IN ĐƠN HÀNG
+RewriteRule ^in-kho-100-75                                      print_100_75.php
+RewriteRule ^in-kho-50-50                                       print_50_50.php
+RewriteRule ^in-kho-a5                                          print_a5.php
+RewriteRule ^in-kho-a6                                          print_a6.php
 
 
 

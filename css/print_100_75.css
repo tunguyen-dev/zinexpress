@@ -1,0 +1,63 @@
+table tr td {
+    vertical-align: middle !important;
+    font-size: 12px !important;
+}
+
+table thead tr th {
+    text-align: center !important;
+    font-size: 12px !important;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.margin-bottom-5 {
+    margin-bottom: 5px;
+}
+
+.margin-bottom-10 {
+    margin-bottom: 10px;
+}
+
+.margin-bottom-20 {
+    margin-bottom: 20px;
+}
+
+.margin-top-5 {
+    margin-top: 5px;
+}
+
+.margin-top-10 {
+    margin-top: 10px;
+}
+
+.margin-top-20 {
+    margin-top: 20px;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.table>tfoot>tr>td, .table>tfoot>tr>th {
+    font-weight: 600;
+}
+
+.custom-button {
+    position: fixed;
+    left: 10px;
+    top: 10px;
+}
+
+.page {
+    page-break-after: always;
+}

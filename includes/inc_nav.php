@@ -7,9 +7,10 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
+        <!-- <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
-        </div>
+        </div> -->
+        <img src="<?= $icon_web?>" alt="" width="80px">
         <div class="sidebar-brand-text mx-3"><?= $adminuser->phone?></div>
     </a>
 
@@ -43,8 +44,8 @@
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="<?= Commons_WebConst::HTACCESS_ORDER_MANAGERMENT?>">Quản lý đơn hàng</a>
-                <a class="collapse-item" href="utilities-color.html">Danh sách file excel</a>
-                <a class="collapse-item" href="utilities-border.html">Phản hồi đơn hàng</a>
+                <a class="collapse-item" href="<?= Commons_WebConst::HTACCESS_LIST_EXCEL?>">Danh sách file excel</a>
+                <a class="collapse-item" href="<?= Commons_WebConst::HTACCESS_FEEDBACK_ORDER?>">Phản hồi đơn hàng</a>
             </div>
         </div>
     </li>
@@ -56,10 +57,11 @@
         </a>
         <div id="collapseMoney" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="404.html">Thống kê doanh thu</a>
-                <a class="collapse-item" href="blank.html">Thống kê tiền hàng</a>
-                <a class="collapse-item" href="login.html">Phiếu đối soát</a>
-                <a class="collapse-item" href="register.html">Lịch sử chuyển tiền</a>
+                <a class="collapse-item" href="<?= Commons_WebConst::HTACCESS_STATIC_COD?>">Thống kê COD</a>
+                <a class="collapse-item" href="<?= Commons_WebConst::HTACCESS_STATIC_CASH_FLOW?>">Thống kê dòng tiền</a>
+                <a class="collapse-item" href="<?= Commons_WebConst::HTACCESS_FOR_CONTROL?>">Phiếu đối soát</a>
+                <a class="collapse-item" href="<?= Commons_WebConst::HTACCESS_WITHDRAW?>">Rút tiền</a>
+                <a class="collapse-item" href="<?= Commons_WebConst::HTACCESS_TRANSACTION?>">Lịch sử giao dịch</a>
             </div>
         </div>
     </li>

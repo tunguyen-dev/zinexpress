@@ -35,8 +35,29 @@
                         }
                     }
                 });
+                $(".toggle-password").click(function() {
+                    $(this).toggleClass("fa-eye fa-eye-slash");
+                        var input = $('#password');
+                    if (input.attr("type") == "password") {
+                        input.attr("type", "text");
+                    } else {
+                        input.attr("type", "password");
+                    }
+                });
             });
         </script>
+        <style>
+            .field-icon {
+                float: right;
+                margin-right: 10px;
+                margin-top: -32px;
+                position: relative;
+                z-index: 2;
+            }
+            .field-icon:hover{
+                cursor: pointer;
+            }
+        </style>
     </head>
 
     <body class="bg-gradient-primary">
@@ -59,7 +80,8 @@
                                                 <input type="text" class="form-control form-control-user" placeholder="Số điện thoại hoặc Email..." name="user"/>
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" class="form-control form-control-user" placeholder="Mật khẩu..." name="password" />
+                                                <input type="password" class="form-control form-control-user" id="password" placeholder="Mật khẩu..." name="password" />
+                                                <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                                             </div>
                                           <!--   <div class="form-check">
                                                 <input type="checkbox" class="form-check-input" id="exampleCheck1">

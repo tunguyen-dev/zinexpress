@@ -43,7 +43,7 @@ header('Content-Type: text/html;charset=UTF-8');
  * 
  **/
 //$base_url = "http://dropship247.000webhostapp.com/public_html";
-$base_url = "http://" . $_SERVER['HTTP_HOST'] . "/zinexpress";
+$base_url = "http://" . $_SERVER['HTTP_HOST'] . "/projects/zinexpress";
 $base_root = $_SERVER['DOCUMENT_ROOT'] . "";
 //$root_logs = "/home/khiemhamon/www/adminsys.topmove.vn/Logs";
 $root_logs = "D:/xampp/htdocs/projects/zinexpress/Logs";
@@ -58,6 +58,10 @@ $config['default'] = array(
     'db'   => 'zinexpress',
 
 );
+
+// IMAGE WEB
+$icon_web = $base_url."/img/logo/icon_zyn_removebg.png";
+$logo_text_removegb = $base_url."/img/logo/logo_zyn_removebg.png";
 
 // reload data
 if(isset($_SESSION['user_logged'])) {

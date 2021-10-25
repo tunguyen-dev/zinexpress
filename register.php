@@ -38,6 +38,9 @@
                                             <div class="form-group">
                                                 <input type="password" class="form-control form-control-user" placeholder="Mật khẩu" required="" name="password">
                                             </div>
+                                            <!-- <div class="form-group">
+                                                <input type="text" class="form-control form-control-user" placeholder="Mã bưu cục" required="" name="post_code">
+                                            </div> -->
                                             <button type="submit" class="btn btn-primary btn-user btn-block" id="btn_reg"> Đăng ký</button>
                                             <div id="msg_err" style="text-align: center;" class="text-primary">
                                                 <span class="spinner-border spinner-border-sm"></span> Xin mời chờ...

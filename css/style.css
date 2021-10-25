@@ -85,7 +85,34 @@
   vertical-align: baseline;
   border-radius: .25em;
 }
-
+.label-primary {
+  background-color: #1ab394;
+  margin-bottom: 0.5rem;
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+}
+.label-success {
+  background-color: #3158c9;
+  margin-bottom: 0.5rem;
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+}
 .btn-group-xs>.btn, .btn-xs{
   padding: .35rem .4rem .25rem .4rem !important;
   font-size: .875rem !important;

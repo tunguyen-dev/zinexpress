@@ -21,6 +21,7 @@
 <head>
     <title><?= Commons_WebConst::TITLE_WEB ?> - Quản lý đơn hàng</title>
     <?php include 'includes/inc_head.php'?>
+    <link href="css/sweetalert/sweetalert.css" rel="stylesheet">
     <style>
        /* span.select2-container {
             z-index: 10050;
@@ -106,7 +107,7 @@
                         <div class="card-body">
                             <form action="">
                                 <div class="row">
-                                    <div class="col-sm-3 m-b-xs">
+                                    <div class="col-sm-2 m-b-xs">
                                         <div class="input-group">
                                             <input type="text" class="input-daterange form-control" name="date_range" id="date_range">
                                         </div>
@@ -140,7 +141,7 @@
                                 <ul class="nav-link list-inline root_nav_stt"><?= $innerHtmlStatusDock ?></ul>
                             </div>
                             <div class="row">
-                                <div class="col-12 ">
+                                <div class="col-12 table-responsive">
                                     <table class="table table-striped">
                                         <thead>
                                             <tr>
@@ -192,7 +193,7 @@
                                                             <button type="button" class="btn btn-outline-primary btn-xs journey"><i class="fas fa-map-marker-alt"></i> Hành Trình</button>
                                                             <button type="button" class="btn btn-outline-primary btn-xs print_od"><i class="fas fa-print"></i> In bill</button>
                                                             <a href="<?= Commons_WebConst::HTACCESS_DETAIL_ORDER?>-8485513156456" target="_blank" class="btn btn-outline-primary btn-xs"><i class="fas fa-info"></i> Chi tiết</a>
-                                                            <button type="button" class="btn btn-danger btn-xs journey"><i class="fas fa-trash-alt"></i> Hủy</button>
+                                                            <button type="button" class="btn btn-danger btn-xs cancel_orders"><i class="fas fa-trash-alt"></i> Hủy</button>
                                                         </div><br>
                                                         <span class="float-right">Đỗ Thị Duyên - 0387172821</span><br>
                                                         <span style="font-weight: bold; text-align: justify;">nvaklksdjalksjdlkjals, Ngõ asdasd, xomsg 1 ,Lương quy, xuân nộn, đông anh, hà nội</span><br>
@@ -245,6 +246,7 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js?v=1.0"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js?v=1.0"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css?v=1.0"/>
+<script src="js/sweetalert/sweetalert.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
         var status_tab = 'stt_total';
@@ -279,6 +281,41 @@
         $('.print_od').on('click', function(){
             $('#printModal').modal('show');
         });
+        $('.cancel_orders').on('click', function(){
+            swal({
+                title: "Hủy đơn hàng 84889089123123",
+                text: "Bạn chắc chắn muốn hủy đơn hàng này :(",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "OK, Hủy :(",
+                cancelButtonText: "Cancel!",
+                closeOnConfirm: false,
+                closeOnCancel: false,
+            },
+            function (isConfirm) {
+                if (isConfirm) {
+                    // $.ajax({
+                    //     url: 'ajax/cancel_order.php',
+                    //     type: 'POST',
+                    //     dataType: 'JSON',
+                    //     data: {
+                    //         _function: "system",      
+                    //         id: id
+                    //     },
+                    //     success : function(data) {
+                    //         if (data.code == 0) {
+                    //             swal("Đã hủy thành công", data.msg, "success");
+                    //         }
+                    //     }         
+                    // });
+                    swal("Đã hủy thành công", "Đơn hàng 84889089123123 đã được hủy!", "success");
+                } else {
+                    swal("Hủy", "Thao tác đã được hủy", "error");
+                }
+            });
+        });
+        
     });
     function changeTab(id) {
         status_tab = id;
@@ -419,10 +456,9 @@
             </div>
             <div class="modal-body">
                 <div>
-                    <a href="" class="btn btn-danger" >Khổ 100*75</a>
-                    <a href="" class="btn btn-danger" >Khổ 50*50</a>
-                    <a href="" class="btn btn-danger" >Khổ A5</a>
-                    <a href="" class="btn btn-danger" >Khổ A6</a>
+                    <a href="<?= Commons_WebConst::HTACCESS_PRINT_100_75 ?>?code=12,13,14,15" target="_blank" class="btn btn-danger" >Khổ 100*75</a>
+                    <a href="<?= Commons_WebConst::HTACCESS_PRINT_50_50 ?>?code=12,13,14,15" target="_blank" class="btn btn-danger" >Khổ 50*50</a>
+                    <a href="<?= Commons_WebConst::HTACCESS_PRINT_A5 ?>?code=12,13,14,15" target="_blank" class="btn btn-danger" >Khổ A5</a>
                 </div>
             </div>
             <div class="modal-footer">

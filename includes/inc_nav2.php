@@ -45,14 +45,19 @@
                 </form>
             </div>
         </li>
-
+        <li class="nav-item dropdown no-arrow mt-4">
+            <span style="font-weight: 700;color: #335acb">
+                Số dư: <?= number_format($adminuser->balance)?> VNĐ
+            </span>
+        </li>
+        <div class="topbar-divider d-none d-sm-block"></div>
         <!-- Nav Item - Alerts -->
         <li class="nav-item dropdown no-arrow mx-1">
             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell fa-fw"></i>
                 <!-- Counter - Alerts -->
-                <span class="badge badge-danger badge-counter">15</span>
+                <span class="badge badge-danger badge-counter">4</span>
             </a>
             <!-- Dropdown - Alerts -->
             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -60,50 +65,63 @@
                 <h6 class="dropdown-header">
                     Thông báo
                 </h6>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                    <div class="mr-3">
-                        <div class="icon-circle bg-primary">
-                            <i class="fas fa-file-alt text-white"></i>
+                <div style="overflow-y: auto;max-height: 400px;">
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                        <div class="mr-3">
+                            <div class="icon-circle bg-primary">
+                                <i class="fas fa-check text-white"></i>
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <div class="small text-gray-500">December 12, 2019</div>
-                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                    </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                    <div class="mr-3">
-                        <div class="icon-circle bg-success">
-                            <i class="fas fa-donate text-white"></i>
+                        <div>
+                            <div class="small text-gray-500">14-03-2021 13:10</div>
+                            <span class="font-weight-bold">Yêu cầu đơn hàng 54353543 đã được xử lý</span>
                         </div>
-                    </div>
-                    <div>
-                        <div class="small text-gray-500">December 7, 2019</div>
-                        $290.29 has been deposited into your account!
-                    </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                    <div class="mr-3">
-                        <div class="icon-circle bg-warning">
-                            <i class="fas fa-exclamation-triangle text-white"></i>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                        <div class="mr-3">
+                            <div class="icon-circle bg-primary">
+                                <i class="fas fa-file-alt text-white"></i>
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <div class="small text-gray-500">December 2, 2019</div>
-                        Spending Alert: We've noticed unusually high spending for your account.
-                    </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                    <div class="mr-3">
-                        <div class="icon-circle bg-warning">
-                            <i class="fas fa-exclamation-triangle text-white"></i>
+                        <div>
+                            <div class="small text-gray-500">14-03-2021 13:10</div>
+                            <span class="font-weight-bold">Đơn hàng 54353543 cập nhật khối lượng</span>
                         </div>
-                    </div>
-                    <div>
-                        <div class="small text-gray-500">December 2, 2019</div>
-                        Spending Alert: We've noticed unusually high spending for your account.
-                    </div>
-                </a>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                        <div class="mr-3">
+                            <div class="icon-circle bg-success">
+                                <i class="fas fa-donate text-white"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="small text-gray-500">14-03-2021 13:10</div>
+                            <span class="font-weight-bold"> Đã chuyển tiền lệnh GD4234324</span>
+                        </div>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                        <div class="mr-3">
+                            <div class="icon-circle bg-danger">
+                                <i class="fas fa-exclamation-triangle text-white"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="small text-gray-500">14-03-2021 13:10</div>
+                            <span class="font-weight-bold"> Đơn hàng 86798679889 giao thất bại</span>
+                        </div>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                        <div class="mr-3">
+                            <div class="icon-circle bg-success">
+                                <i class="fas fa-donate text-white"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="small text-gray-500">14-03-2021 13:10</div>
+                            <span class="font-weight-bold"> Nhận tiền từ PĐS PDS21332432324</span>
+                        </div>
+                    </a>
+                </div>
                 <a class="dropdown-item text-center small text-gray-500" href="#">Xem tất cả</a>
             </div>
         </li>
@@ -126,6 +144,10 @@
                 <a class="dropdown-item" href="<?= Commons_WebConst::HTACCESS_PROFILE ?>">
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                     Thông tin cá nhân
+                </a>  
+                <a class="dropdown-item" href="<?= Commons_WebConst::HTACCESS_PROFILE ?>">
+                    <i class="fas fa-bell fa-fw fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Thông báo
                 </a>                
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="<?= Commons_WebConst::HTACCESS_LOGIN ?>" >

@@ -1,0 +1,179 @@
+.login {
+    background-color: #4f5a67 !important;
+}
+
+.login .content .input-icon {
+    border-left: 2px solid #009444 !important;
+}
+
+.login .content .register-form .form-actions {
+    padding-bottom: 25px;
+}
+
+.login .content .forget-password {
+    margin-bottom: 10px;
+}
+
+.full-height {
+    height: 100vh;
+}
+
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.error {
+    background-color: #a73a3a !important;
+    color: #ffffff;
+}
+
+.error .content {
+    color: #000000;
+    margin: 30px auto;
+    background-color: #ffffff;
+    width: 360px;
+    padding: 20px;
+    border-radius: 7px;
+}
+
+table tr td {
+    vertical-align: middle !important;
+}
+
+table thead tr th {
+    text-align: center !important;
+    font-size: 12px !important;
+    vertical-align: middle !important;
+}
+
+.label-inner {
+    background-color: #552782;
+}
+
+.label-outer {
+    background-color: #9f224e;
+}
+
+mark {
+    padding: 0;
+}
+
+.label-express {
+    background-color: #f4645f;
+}
+
+.label-savings {
+    background-color: #598e40;
+}
+
+.label-white {
+    color: #000000;
+    border: 1px solid #000000;
+    font-weight: bold;
+}
+
+.label-red {
+    color: #e1293d;
+    border: 1px solid #e1293d;
+    font-weight: bold;
+}
+
+.label-blue {
+    color: #3598dc;
+    border: 1px solid #3598dc;
+    font-weight: bold;
+}
+
+.label-orange {
+    background-color: #ff5722;
+}
+
+.label-green {
+    background-color: #009444;
+}
+
+.italic {
+    font-style: italic;
+}
+
+#tickets-search .data .portlet {
+    cursor: pointer;
+}
+
+#tickets-search .data .selected {
+    border: 1px solid #e1293d;
+    cursor: default;
+}
+
+#issues-search .data .portlet {
+    cursor: pointer;
+}
+
+#issues-search .data .selected {
+    border: 1px solid #e1293d;
+    cursor: default;
+}
+
+.ntime {
+    font-size: 11px;
+}
+
+.unread {
+    background-color: #f9e8e8;
+}
+
+.count {
+    background-color: #ffffff;
+    border: 2px dashed #e1293d;
+    color: #e1293d;
+    display: inline-block;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 3px 12px;
+    position: fixed;
+    top: 130px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.total {
+    background-color: #ffffff;
+    border: 2px solid #009444;
+    color: #009444;
+    display: inline-block;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 3px 12px;
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.tips {
+    font-size: 12px;
+}
+
+.hr {
+    margin: 5px 0;
+}
+
+.table-hover>tbody>tr:hover, .table-hover>tbody>tr:hover>td {
+    background: #fbc3c4 !important;
+}
+
+.label-mc {
+    background-color: #e1293d;
+}
+
+.help-block {
+    color: #e1293d;
+    font-size: 12px;
+}
+
+.label-vip {
+    background-color: #000;
+}

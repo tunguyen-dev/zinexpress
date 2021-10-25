@@ -225,13 +225,13 @@
                                                             <div class="form-check mt-1">
                                                                 <input class="form-check-input" type="radio" name="config_payer" id="sender" value="0" <?php echo ($adminuser->config_payer == 0) ? 'checked' : '' ?>>
                                                                 <label class="form-check-label" for="sender" style="color:#333;font-size: 15px;font-weight: 400;">
-                                                                    Người gửi
+                                                                    Người gửi (sẽ trừ phí cước sau khi đối soát)
                                                                 </label>
                                                             </div>
                                                             <div class="form-check">
                                                                 <input class="form-check-input" type="radio" name="config_payer" id="receiver" value="1" <?php echo ($adminuser->config_payer == 1) ? 'checked' : '' ?>>
                                                                 <label class="form-check-label" for="receiver" style="color:#333;font-size: 15px;font-weight: 400;">
-                                                                    Người nhận
+                                                                    Người nhận (sẽ cộng tiền cước vào COD)
                                                                 </label>
                                                             </div>
                                                         </div>
