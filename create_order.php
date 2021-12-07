@@ -66,7 +66,7 @@
                                                         <div class="col-md-12">
                                                             <div id="load_select">
                                                                 <div class="input-group">
-                                                                    <select name="ware_id" class="select2_js_2" id="ware" style="width: 100%;">
+                                                                    <select name="ware_id" class="select2_js_2" id="ware_id" style="width: 100%;">
                                                                         <?php if ($count == 0) { ?>
                                                                             <option value="0">Kho hàng</option>
                                                                         <?php } ?>
@@ -138,8 +138,8 @@
                                                     <input placeholder="Sản phẩm cần giao..." required="" type="text" class="form-control" name="product">
                                                 </div>
                                                 <div class="form-group mt-2">
-                                                    <label class="label_black"><i class="fas fa-balance-scale"></i> Khối lượng [Gram] <span style="color: red">*</span></label>
-                                                    <input placeholder="Khối lượng của sản phẩm [Gram]..." required="" type="text" class="form-control" name="weight">
+                                                    <label class="label_black"><i class="fas fa-balance-scale"></i> Khối lượng [Kg] <span style="color: red">*</span></label>
+                                                    <input placeholder="Khối lượng của sản phẩm [Kg]..." required="" value="0.5" type="text" class="form-control number_cleave" name="weight" id="weight">
                                                 </div>
                                                 <div class="form-group mt-2">
                                                     <label class="label_black"><i class="fas fa-ruler-vertical"></i> Kích thước [Cm]</label>
@@ -156,8 +156,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group mt-2">
-                                                    <label class="label_black"><i class="fab fa-cloudscale"></i> KL Quy Đổi: ([dài*rộng*cao]/6) [Đơn vị: Gram]</label>
-                                                    <input placeholder="Khối lượng quy đổi từ kích thước..." readonly type="text" class="form-control" value="21" name="weight_exchange" id="weight_exchange">
+                                                    <label class="label_black"><i class="fab fa-cloudscale"></i> KL Quy Đổi: ([dài*rộng*cao]/6) [Đơn vị: KG]</label>
+                                                    <input placeholder="Khối lượng quy đổi từ kích thước..." readonly type="text" class="form-control" value="0.02" name="weight_exchange" id="weight_exchange">
                                                 </div>
                                                 <div class="form-group mt-2">
                                                     <label class="label_black"><i class="fas fa-clipboard"></i> Ghi chú đơn hàng</label>
@@ -182,41 +182,44 @@
                                             <div class="col-lg-6 col-md-12 hr-right">
                                                 <h5 class="">- Phần phí thanh toán:</h5>
                                                 <div style="font-weight: bold">
-                                                    <ul class="list-group mb-3">
-                                                        <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                                          <div>
-                                                            <span class="my-0">Phí giao hàng</span>
-                                                          </div>
-                                                          <span class="text-muted">18,000 đ</span>
-                                                        </li>
-                                                        <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                                          <div>
-                                                            <span class="my-0">Phí COD</span>
-                                                          </div>
-                                                          <span class="text-muted">0 đ</span>
-                                                        </li>
-                                                        <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                                          <div>
-                                                            <span class="my-0">Phí bảo hiểm</span>
-                                                          </div>
-                                                          <span class="text-muted">0 đ</span>
-                                                        </li>
-                                                        <li class="list-group-item d-flex justify-content-between text-success">
-                                                          <span>Tổng (VNĐ)</span>
-                                                          <strong>18,000 đ</strong>
-                                                        </li>
-                                                    </ul>
-                                                    <button class="btn btn-primary"><i class="fas fa-plus"></i> Tạo đơn</button>
+                                                    <div id="load_fee_order">
+                                                        <ul class="list-group mb-3">
+                                                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                                            <div>
+                                                                <span class="my-0">Phí giao hàng</span>
+                                                            </div>
+                                                            <span class="text-muted">18,000 đ</span>
+                                                            </li>
+                                                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                                            <div>
+                                                                <span class="my-0">Phí COD</span>
+                                                            </div>
+                                                            <span class="text-muted">0 đ</span>
+                                                            </li>
+                                                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                                            <div>
+                                                                <span class="my-0">Phí bảo hiểm</span>
+                                                            </div>
+                                                            <span class="text-muted">0 đ</span>
+                                                            </li>
+                                                            <li class="list-group-item d-flex justify-content-between text-success">
+                                                            <span>Tổng (VNĐ)</span>
+                                                            <strong>18,000 đ</strong>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <span id="msg_err_load_fee" class="text-primary"><span class="spinner-border spinner-border-sm "></span> Đang xử lý</span>
+                                                    <button class="btn btn-primary" id="btn_create"><i class="fas fa-plus"></i> Tạo đơn</button>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 col-md-12">
                                                 <div class="form-group mt-2">
                                                     <label class="label_black"><i class="fas fa-hand-holding-usd"></i> Số tiền thu hộ (COD) </label>
-                                                    <input placeholder="Nhập số tiền thu hộ để rỗng = 0" required="" type="text" class="form-control" name="product">
+                                                    <input placeholder="Nhập số tiền thu hộ để rỗng = 0" required="" type="text" class="form-control number_cleave" name="cod" id="cod">
                                                 </div>
                                                 <div class="form-group mt-2">
                                                     <label class="label_black"><i class="fas fa-money-check-alt"></i> Giá trị đơn hàng </label>
-                                                    <input placeholder="Nhập giá trị đơn hàng để rỗng = 0" required="" type="text" class="form-control" name="weight">
+                                                    <input placeholder="Nhập giá trị đơn hàng để rỗng = 0" required="" type="text" class="form-control number_cleave" name="value_od" id="value_od">
                                                 </div>
                                                 <div class="form-group mt-2">
                                                     <div class="row">
@@ -265,9 +268,55 @@
 </html>
 <script type="text/javascript">
     $(document).ready(function(){
+        $('#msg_err_load_fee').hide();
         function calExchange(width,height,length) {
-            var cal = (width*height*length)/6;
-            return cal;
+            let width_str = width.replace(",", "");
+            let height_str = height.replace(",", "");
+            let length_str = length.replace(",", "");
+
+            let cal = (width_str*height_str*length_str)/6000;
+            let n = parseFloat(cal); 
+            weight_exchange = Math.round(n * 100)/100;
+            return weight_exchange;
+        }
+        function getFee() {
+            let ware_id = $('#ware_id').val();
+            let city = $('#city').val();
+            let district = $('#district').val();
+            let commune = $('#commune').val();
+            let weight = $('#weight').val();
+            let weight_exchange = $('#weight_exchange').val();
+            let cod = $('#cod').val();
+            let value_od = $('#value_od').val();
+            let payer = $("input[name='config_payer']").val();
+
+
+            $.ajax({
+                url: 'ajax/get_fee_order.php',
+                type: 'POST',
+                data: {
+                    ware_id: ware_id,
+                    city: city,
+                    district: district,
+                    commune: commune,
+                    weight: weight,
+                    weight_exchange: weight_exchange,
+                    cod: cod,
+                    value_od: value_od,
+                    payer: payer
+                },
+                beforeSend : function() {
+                    $('#msg_err_load_fee').show();
+                    $('#btn_create').hide();
+                    $('#load_fee_order').hide();
+                },
+                success : function(data) {
+                    $('#load_fee_order').html(data);
+                    $('#msg_err_load_fee').hide();
+                    $('#btn_create').show();
+                }
+            });
+
         }
         $('body').on('change', '#city', function(e){
             var code = $('#city').val();
@@ -291,7 +340,8 @@
                             },
                             success : function(data) {
                                 $('#load_commune').html(data);
-                                $('.select2_js').select2();     
+                                $('.select2_js').select2(); 
+                                getFee();    
                             }         
                         });  
                     });     
@@ -312,7 +362,8 @@
                     $('#city').html(data.city)
                     $('#district').html(data.district)
                     $('#load_commune select').html(data.commune);
-                    $('.select2_js').select2();     
+                    $('.select2_js').select2(); 
+                    getFee();    
                 }         
             }); 
         });
@@ -320,24 +371,31 @@
             var width = $('#width').val();
             var height = $('#height').val();
             var length = $('#length').val();
-            var exchange = Math.ceil(calExchange(width,height,length));
-            $('#weight_exchange').val(exchange);
-
+            $('#weight_exchange').val(calExchange(width,height,length)); 
+            getFee();
         });
         $('#height').on('blur',function() {
             var width = $('#width').val();
             var height = $('#height').val();
             var length = $('#length').val();
-            var exchange = Math.ceil(calExchange(width,height,length));
-            $('#weight_exchange').val(exchange);
-            
+            $('#weight_exchange').val(calExchange(width,height,length));
+            getFee();
         });
         $('#length').on('blur',function() {
             var width = $('#width').val();
             var height = $('#height').val();
             var length = $('#length').val();
-            var exchange = Math.ceil(calExchange(width,height,length));
-            $('#weight_exchange').val(exchange);
+            $('#weight_exchange').val(calExchange(width,height,length));
+            getFee();
+        });
+        $('#cod').on('blur',function() {
+            getFee();
+        });
+        $('#value_od').on('blur',function() {
+            getFee();
+        });
+        $('#weight').on('blur',function() {
+            getFee();
         });
         $('.number_cleave').toArray().forEach(function(field){
             new Cleave(field, {

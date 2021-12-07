@@ -18,12 +18,77 @@
     $list_cities = $model_cities->getList2();
 ?>
 <?php if (!is_object($obj_ware)) {?>
+    <link href="css/sweetalert/sweetalert.css" rel="stylesheet">
+    <script src="js/sweetalert/sweetalert.min.js"></script>
     <!-- Modal ADD WARE-->
     <script type="text/javascript">
         $(document).ready(function(){
             $('#modalWareRequired').modal('show');
             $('#msg_err_required').hide();
             $("#msg_err_log_required").hide(); 
+
+            $('body').on('change', '#city', function(e){
+                var code = $('#city').val();
+                $('#commune').val(0);
+                $.ajax({
+                    url: 'ajax/load_district.php',
+                    type: 'POST',
+                    data: {
+                        city_code: code           
+                    },
+                    success : function(data) {
+                        $('#load_district').html(data);
+                        $('.select2_js').select2({
+                            dropdownParent: $('#modalWareRequired')
+                        });  
+                        $('#district').on('change', function() {
+                            var code_dis = $('#district').val();    
+                            $.ajax({
+                                url: 'ajax/load_commune.php',
+                                type: 'POST',
+                                data: {
+                                    district: code_dis,             
+                                },
+                                success : function(data) {
+                                    $('#load_commune').html(data);
+                                    $('.select2_js').select2({
+                                        dropdownParent: $('#modalWareRequired')
+                                    });     
+                                }         
+                            });  
+                        });     
+                    }         
+                });     
+            });
+
+            $("#formAddWareRequired").ajaxForm({
+                url : './ajax/warehouse.php',
+                type : 'post',
+                dataType : 'json',
+                beforeSend : function() {
+                    $("#msg_err_required").show();
+                    $("#msg_err_log_required").hide();
+                    $("#btn_add_required").hide();
+                },
+                success : function(data) {
+                    if(data.code == 1) {
+                        $("#msg_err_log_required").html("<span class='label label-danger'>" + data.msg + "</span>");
+                        $("#btn_add_required").show();
+                        $("#msg_err_log_required").show();
+                    }
+                    if(data.code == 0) {
+                        swal({
+                            title: "Thành Công!",
+                            text: "Thêm kho hàng thành công!",
+                            type: "success",
+                        });
+                        $(".confirm").on("click",function() {
+                            location.reload();
+                        })
+                    }
+                    $("#msg_err_required").hide();
+                }
+            });
         });
     </script>
     <div class="modal fade" id="modalWareRequired" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true" data-backdrop="static" data-keyboard="false">
@@ -35,7 +100,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form class="user" id="formAddWare">
+                <form class="user" id="formAddWareRequired">
                     <div class="modal-body">
                         <div class="form-group">
                             <input type="hidden" name="_function" value="add_ware">
@@ -75,7 +140,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <div id="btn_add">
+                        <div id="btn_add_required">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
                             <button type="submit" class="btn btn-primary">Tạo kho</button>
                         </div>

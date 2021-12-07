@@ -26,6 +26,10 @@ class Persistents_Users extends Persistents_Core {
     public $fee_insurance        = 1;
     public $free_return          = 1;
     public $same_price           = 0;
+    public $v3_account           = "";
+    public $v3_password          = "";
+    public $bestinc_account      = "";
+    public $bestinc_password     = "";
 
     function getId() {
     	return $this->id;

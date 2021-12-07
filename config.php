@@ -32,7 +32,7 @@ function __autoload($name) {
         require_once $path;
     }
 }
-ini_set('display_errors', 0);
+ini_set('display_errors', 1);
 set_time_limit(0);
 mb_internal_encoding("UTF-8");
 header('Content-Type: text/html;charset=UTF-8');

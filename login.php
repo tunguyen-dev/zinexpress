@@ -7,7 +7,27 @@
 <html lang="en">
     <head>
         <title><?= Commons_WebConst::TITLE_WEB ?> - Đăng nhập</title>
-        <?php include 'includes/inc_head.php'?>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--===============================================================================================-->	
+        <link rel="icon" type="image/png" href="<?= $icon_web?>" />
+        <!--===============================================================================================-->
+        <!-- <link rel="stylesheet" type="text/css" href="login_tem/vendor/bootstrap/css/bootstrap.min.css"> -->
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="login_tem/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="login_tem/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="login_tem/css/util.css">
+        <link rel="stylesheet" type="text/css" href="login_tem/css/main.css?v=1.2">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link href="css/sweetalert/sweetalert.css" rel="stylesheet">
+        <script src="js/sweetalert/sweetalert.min.js"></script>
+        <script src="js/jquery.form.js"></script>
         <script>
             $(document).ready(function () {
                 $("#msg_err").hide();
@@ -60,54 +80,37 @@
         </style>
     </head>
 
-    <body class="bg-gradient-primary">
-        <div class="container">
-            <!-- Outer Row -->
-            <div class="row justify-content-center">
-                <div class="col-xl-10 col-lg-12 col-md-9">
-                    <div class="card o-hidden border-0 shadow-lg my-5">
-                        <div class="card-body p-0">
-                            <!-- Nested Row within Card Body -->
-                            <div class="row">
-                                <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-                                <div class="col-lg-6">
-                                    <div class="p-5">
-                                        <div class="text-center">
-                                            <h1 class="h4 text-gray-900 mb-4">Đăng nhập!</h1>
-                                        </div>
-                                        <form class="user" id="formLogin">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control form-control-user" placeholder="Số điện thoại hoặc Email..." name="user"/>
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="password" class="form-control form-control-user" id="password" placeholder="Mật khẩu..." name="password" />
-                                                <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
-                                            </div>
-                                          <!--   <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                                <label class="form-check-label" for="exampleCheck1" style="color: #333;font-size: 15px;font-weight: 400;margin-left: -10px;">Nhớ tài khoản</label>
-                                            </div><br> -->
-                                            <button type="submit" class="btn btn-primary btn-user btn-block" id="btn_login"> Đăng nhập</button>
-                                            <div id="msg_err" style="text-align: center;" class="text-primary">
-                                                <span class="spinner-border spinner-border-sm"></span> Xin mời chờ...
-                                            </div>
+    <body>
+        <div class="limiter">
+            <div class="container-login100" style="background-image: url('login_tem/images/bg-01.jpg');">
+                <div class="wrap-login100 p-t-30 p-b-50">
+                    <span class="login100-form-title p-b-41" style="font-weight: 700">
+                        Đăng nhập
+                    </span>
+                    <form class="login100-form validate-form p-b-33 p-t-5" id="formLogin">
 
-                                            <span id="msg_err_log"></span>
-                                           <!--  <a href="index.html" class="btn btn-google btn-user btn-block"> <i class="fab fa-google fa-fw"></i> Login with Google </a>
-                                            <a href="index.html" class="btn btn-facebook btn-user btn-block"> <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook </a> -->
-                                        </form>
-                                        <hr />
-                                        <div class="text-center">
-                                            <a class="small" href="<?= Commons_WebConst::HTACCESS_FORGET ?>">Quên mật khẩu?</a>
-                                        </div>
-                                        <div class="text-center">
-                                            <a class="small" href="<?= Commons_WebConst::HTACCESS_REGISTER ?>">Đăng ký tài khoản!</a>
-                                        </div>
-                                    </div>
-                                </div>
+                        <div class="wrap-input100 validate-input">
+                            <input class="input100" type="text" placeholder="Số điện thoại hoặc Email" name="user" required="" autofocus>
+                            <span class="focus-input100" data-placeholder="&#xe82a;"></span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input">
+                            <input class="input100" type="password" id="password" placeholder="Mật khẩu" name="password" required="">
+                            <span class="focus-input100" data-placeholder="&#xe80f;"></span>
+                            <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                        </div>
+
+                        <div class="container-login100-form-btn m-t-32">
+                            <button class="login100-form-btn" style="font-weight: 700" id="btn_login">
+                                Đăng nhập
+                            </button>
+                            <div class="clearfix"></div>
+                            <div id="msg_err" style="text-align: center;" class="text-primary">
+                                <span class="spinner-border spinner-border-sm"></span> Xin mời chờ...
                             </div>
                         </div>
-                    </div>
+
+                    </form>
                 </div>
             </div>
         </div>
